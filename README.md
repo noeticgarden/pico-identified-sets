@@ -1,6 +1,6 @@
 # IdentifiedSets
 
-The IdentifiedSets module adds the concept of an ‘identified set’ to Swift — a set of elements conforming to `Identifiable` that are added or removed to a set-like by their identifier.
+The IdentifiedSets module adds the concept of an ‘identified set’ to Swift — a set of elements conforming to `Identifiable` that are added or removed to a set-like container by their identifier.
 
 For example:
 
