@@ -13,17 +13,20 @@ struct Greeting: Identifiable {
 
 var greetings: IdentifiedSet<Greeting> = []
 var english = Greeting(id: "en", text: "Hello")
-greetings.insert(hello)
+greetings.insert(english)
+print(greetings) // Contains "Hello".
 
 english.text = "Good day!"
-greetings.update(with: hello) // Replaces the previous element with the same identifier.
+greetings.update(with: english) // Replaces the previous element with the same identifier.
+print(greetings) // Contains "Good day!" instead.
 
 // The following are equivalent:
 greetings.remove(english)
 greetings.remove(id: "en")
+print(greetings) // Empty.
 ```
 
-Identified sets transparently support and forward the `Sendable`, `Equatable`, `Hashable`, `Encodable` and/or `Decodable` implementation of their underlying storage, and encode and decode transparently the same way their storage does. If you use the `IdentifiedSet` trait, this underlying storage is the built-in Swift `Set` type.
+Identified sets transparently support and forward the `Sendable`, `Equatable`, `Hashable`, `Encodable` and/or `Decodable` implementation of their underlying storage, and encode and decode transparently the same way their storage does. If you use the `IdentifiedSet` type as above, this underlying storage is the built-in Swift `Set` type.
 
 ## Traits & Implementation Details
 
