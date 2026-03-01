@@ -1,4 +1,4 @@
-// swift-tools-version: 6.2
+// swift-tools-version: 6.0
 
 import PackageDescription
 
@@ -17,10 +17,6 @@ let package = Package(
             name: "IdentifiedSets",
             targets: ["IdentifiedSets"]),
     ],
-    traits: [
-        .default(enabledTraits: ["SwiftCollections"]),
-        .trait(name: "SwiftCollections"),
-    ],
     dependencies: [
         .package(url: "https://github.com/apple/swift-collections.git", from: "1.3.0"),
     ],
@@ -28,8 +24,11 @@ let package = Package(
         .target(
             name: "IdentifiedSets",
             dependencies: [
-                .product(name: "Collections", package: "swift-collections", condition: .when(traits: ["SwiftCollections"])),
+                .product(name: "Collections", package: "swift-collections"),
             ],
+            swiftSettings: [
+                .define("SwiftCollections")
+            ]
         ),
     ]
 )
